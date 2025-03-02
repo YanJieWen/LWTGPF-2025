@@ -13,14 +13,41 @@ Unsupervised person Re-ID has gained more favor due to its potential for label-f
 # Preliminary🔧
 **Overall framework**  
 ![image](assets/overall.jpg)
+**It seems to be successful only under Linux**
+```
+pip install faiss-gpu 
+git clone https://github.com/YanJieWen/LWTGPF-2025.git
+```
 
 # Pretrain Weights📂
+## Luperson prertrained
+[![Swin](https://img.shields.io/badge/Swin_TF-LP-blue)](https://github.com/tinyvision/SOLIDER?tab=readme-ov-file)  
+[![Res50](https://img.shields.io/badge/Res50-CNN-blue)](https://github.com/DengpanFu/LUPerson)  
+[![VIT](https://img.shields.io/badge/VIT-TF-blue)](https://github.com/damo-cv/TransReID-SSL/tree/main)
+
+## Imagenet pretrained
+[![Img](https://img.shields.io/badge/Image-Net-green)](https://github.com/huggingface/pytorch-image-models-timm)
+
+Putting them into the 📂[pretrain](pretrain)-->generate `imagenet` and `luperson`
 
 
 # Datasets🔔
+We provide 4 banchmarks in [configs](configs), before run our project, please donwload datasets and put them into the [benchmarks](benchmarks)  
+[Market1501](https://www.kaggle.com/datasets/pengcw1/market-1501/data)  
+[DukeMTMC](https://github.com/lightas/ICCV19_Pose_Guided_Occluded_Person_ReID)  
+[CUHK03](http://www.ee.cuhk.edu.hk/~xgwang/CUHK_identification.html)  
+[OccDuke](https://github.com/lightas/Occluded-DukeMTMC-Dataset)
 
 
 # How to Run💻
+## Training
+**After installing the data and weights**  
+
+
+
+## Evaluating
+
+## Analysis
 
 
 # Acknowledegements🙏
