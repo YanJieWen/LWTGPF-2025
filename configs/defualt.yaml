@@ -1,0 +1,96 @@
+task_name: 'Person Re-ID'
+seed: 42
+
+benchmark_setting:
+  root_dir: 'benchmarks'
+  name: 'Market-1501'
+
+sample_setting:
+  type: 'proxy_balance'
+  num_instances: 4
+  mean: [0.3525, 0.3106, 0.3140]
+  std: [0.2660, 0.2522, 0.2505]
+
+cluster_setting:
+  eps: 0.5
+  min_samples: 4
+  cluster_k1: 20
+  cluster_k2: 6
+
+input_setting:
+  height: 384
+  width: 128
+  mean: [0.3525,0.3106,0.3140]
+  std: [0.2660,0.2522,0.2505]
+
+model_setting:
+  arch: tmgf
+  img_size: [384,128]
+  stride_size: [16,16]
+  sie_coef: 3.0
+  camera_num: 6
+  view_num: 0
+  drop_path_rate: 0.1
+  drop_rate: 0.0
+  attn_drop_rate: 0.0
+  hw_ratio: 2
+  gem_pool: False
+  stem_conv: True
+  pretrain_path: './pretrain/luperson/vit/vit_small_ics_cfs_lup.pth' #for feature and part feature capture
+  num_parts: 5 # total number of parts
+  has_head: True # whether to use muti-grained projection heads
+  has_early_feature: True # whether to obtain (L-1)-th layer output feature
+  enable_early_norm: False #whether to apply LayerNorm on (L-1)-th layer output feature
+  global_feature_type: 'mean'  #which global token fusion method to use: mean, b1, b2
+  granularities: [2, 3]  # number of part splits in each branch, sum up to MODEL.NUM_PAR
+  branch: 'all'
+
+train_setting:
+  optimizer:
+    name: 'SGD'
+    lr0: 3.5e-4
+    weight_decay: 0.0005
+    weight_decay_bias: 0.0005
+    momentum: 0.9
+    bias_lr_factor: 1.0
+    scheduler_type: 'warmup'
+    warmup_epochs: 10
+    warmup_factor: 0.01
+    gamma: 0.1
+    warmup_method: 'linear'
+    milestones: [20,40]
+    num_epochs: 50
+  base:
+    epochs: 50
+    iters: 200
+    batch_size: 32
+    num_worker: 0
+    fp16: False
+    num_instances: 4
+  log:
+    log_dir: './runs/tmgf/logs'
+    print_freq: 50
+    save_dir: ''
+    save_interval: 10
+    load_dir: ''
+    load_epoch: 0
+    save_benchmark: False
+    benchmark_path: './runs/tmgf/benchmark.csv'
+    ckpt_save_dir: './runs/tmgf/ckpt'
+    ckpt_load_dir: ''
+    ckpt_name: ''
+
+membank_setting:
+  momentum: 0.2
+  proxy_temp: 0.07
+  bg_knn: 50
+  pos_k: 3
+  balance_w: 0.15
+  part_w: 0.1
+  num_parts: 5
+
+test_setting:
+  batch_size: 32
+  num_workers: 8
+  eval_step: 1
+  re_rank: False
