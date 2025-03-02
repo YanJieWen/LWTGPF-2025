@@ -42,7 +42,10 @@ We provide 4 banchmarks in [configs](configs), before run our project, please do
 # How to Run💻
 ## Training
 **After installing the data and weights**  
-
+change the [train.py][train.py], `line 31`  corresponding to the [configs](configs)
+```
+python train.py
+```
 
 
 ## Evaluating
