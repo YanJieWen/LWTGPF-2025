@@ -11,7 +11,8 @@ Unsupervised person Re-ID has gained more favor due to its potential for label-f
 
 
 # Preliminary🔧
-
+**Overall framework**  
+![image](assets/overall.jpg)
 
 # Pretrain Weights📂
 
