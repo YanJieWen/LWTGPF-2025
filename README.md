@@ -3,7 +3,7 @@ Unsupervised person Re-ID has gained more favor due to its potential for label-f
 
 # Contents
 - [Preliminary🔧](#Preliminary)
-- [Pretrain_Weights📂](#Weights)
+- [Pretrain📂](#Weights)
 - [Datasets🔔](#Datasets)
 - [How to Run💻](#Run)
 - [Acknowledegements🙏](#Acknowledegements)
@@ -19,7 +19,7 @@ pip install faiss-gpu
 git clone https://github.com/YanJieWen/LWTGPF-2025.git
 ```
 
-# Pretrain_Weights📂
+# Pretrain📂
 ## Luperson prertrained
 [![Swin](https://img.shields.io/badge/Swin_TF-LP-blue)](https://github.com/tinyvision/SOLIDER?tab=readme-ov-file)  
 [![Res50](https://img.shields.io/badge/Res50-CNN-blue)](https://github.com/DengpanFu/LUPerson)  
