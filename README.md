@@ -68,7 +68,8 @@ python heatmap_visual.py
 
 
 # Acknowledegements🙏
-We sincerely thank the excellent works:
+We sincerely thank the excellent works:  
+
 [TMGF](https://github.com/RikoLi/WACV23-workshop-TMGF)  
 [O2CAP](https://github.com/Terminator8758/O2CAP)  
 [SOLIDER](https://github.com/tinyvision/SOLIDER)
