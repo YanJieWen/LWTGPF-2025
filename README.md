@@ -42,20 +42,38 @@ We provide 4 banchmarks in [configs](configs), before run our project, please do
 # How to Run💻
 ## Training
 **After installing the data and weights**  
-change the [train.py][train.py], `line 31`  corresponding to the [configs](configs)
+change the [train.py](train.py) of `line 31`  corresponding to the [configs](configs)
 ```
 python train.py
 ```
-
+After training, a new folder called `runs` is created. In this folder, you can get the `logs` folder, the Training log and weights are preserved.
 
 ## Evaluating
+change the [predict.py](predict.py) of `line 36` & `line 37`  Run
+```
+python predict.py
+```
+**We suggest run our model based on the trained weights:**  
+[![Best](https://img.shields.io/badge/LWTGPF-best-red)](https://drive.google.com/drive/folders/1LWs-UuSQD0128wRyH7OdaFKqqt0Aoxbr?usp=drive_link)
+
+
+
 
 ## Analysis
+We provide methods based on attention maps and Grad-CAM maps in [heatmap_visual.py](heatmap_visual.py), which are implemented in [swin_rollout.py](Csu/tools/swin_rollout.py) and [grad_cam.py](Csu/tools/grad_cam.py). You need to modify the parameters from `line 25` to `line 30`.  
+```
+python heatmap_visual.py
+```
+
 
 
 # Acknowledegements🙏
-
+We sincerely thank the excellent works:
+[TMGF](https://github.com/RikoLi/WACV23-workshop-TMGF)  
+[O2CAP](https://github.com/Terminator8758/O2CAP)  
+[SOLIDER](https://github.com/tinyvision/SOLIDER)
 
 
 # License🔑
+[MIT](LICENSE) © YanjieWen
 
