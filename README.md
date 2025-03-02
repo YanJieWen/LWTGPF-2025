@@ -13,18 +13,18 @@
 # Preliminary🔧
 
 
-#Pretrain Weights📂
+# Pretrain Weights📂
 
 
-#Datasets🔔
+# Datasets🔔
 
 
-#How to Run💻
+# How to Run💻
 
 
-#Acknowledegements🙏
+# Acknowledegements🙏
 
 
 
-#License🔑
+# License🔑
 
