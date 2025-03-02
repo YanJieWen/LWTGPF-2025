@@ -11,3 +11,20 @@
 
 
 # Preliminary🔧
+
+
+#Pretrain Weights📂
+
+
+#Datasets🔔
+
+
+#How to Run💻
+
+
+#Acknowledegements🙏
+
+
+
+#License🔑
+
