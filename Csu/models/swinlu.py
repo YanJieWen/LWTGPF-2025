@@ -658,7 +658,7 @@ class SwinTransformer(nn.Module):
             print('No pretrained model, training from scratch')
             for m in self.modules():
                 if isinstance(m,nn.Linear):
-                    nn.init.trunc_normal_(m,std=.02)
+                    nn.init.trunc_normal_(m.weight,std=.02)
                 elif isinstance(m,nn.LayerNorm):
                     nn.init.constant_(m.bias,0)
                     nn.init.constant_(m.weight, 1.0)
@@ -679,21 +679,21 @@ class SwinTransformer(nn.Module):
                 _state_dict = swin_converted_imagenet(_state_dict)
             else:
                 raise ValueError(f'{convert_type} is not supported--luperson,imagenet')
-        cnt = 0
-        # print('conver:',_state_dict.keys())
-        # print('ourmodel:',self.state_dict().keys())
-        for k,v in _state_dict.items():
-            try:
-                self.state_dict()[k].copy_(v)
-                cnt+=1
-            except:
-                print('===========================Warning=========================')
-                if convert_type=='luperson':
-                    print('shape do not match in k :{}: param_dict{} vs self.state_dict(){}'.format(k, v.shape,self.state_dict()[
-                                                                                                    k].shape))
-                else:
-                    print(f'k:{k} is not found in model with shape of {v.shape}')
-        print('Load %d / %d layers.' % (cnt, len(self.state_dict().keys())))
+            cnt = 0
+            # print('conver:',_state_dict.keys())
+            # print('ourmodel:',self.state_dict().keys())
+            for k,v in _state_dict.items():
+                try:
+                    self.state_dict()[k].copy_(v)
+                    cnt+=1
+                except:
+                    print('===========================Warning=========================')
+                    if convert_type=='luperson':
+                        print('shape do not match in k :{}: param_dict{} vs self.state_dict(){}'.format(k, v.shape,self.state_dict()[
+                                                                                                        k].shape))
+                    else:
+                        print(f'k:{k} is not found in model with shape of {v.shape}')
+            print('Load %d / %d layers.' % (cnt, len(self.state_dict().keys())))
 
 
 
