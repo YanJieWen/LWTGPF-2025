@@ -657,9 +657,9 @@ class SwinTransformer(nn.Module):
         if model_path is None:
             print('No pretrained model, training from scratch')
             for m in self.modules():
-                if isinstance(m.nn.Linear):
+                if isinstance(m,nn.Linear):
                     nn.init.trunc_normal_(m,std=.02)
-                elif isinstance(m.nn.Layernorm):
+                elif isinstance(m,nn.LayerNorm):
                     nn.init.constant_(m.bias,0)
                     nn.init.constant_(m.weight, 1.0)
         else:
